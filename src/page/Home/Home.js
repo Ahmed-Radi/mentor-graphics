@@ -55,16 +55,16 @@ function Home() {
                     />
                     <WeatherInfo
                         isLoading={isLoading}
-                        city={APIData?.request[0]?.query?.split(',')[0]}
-                        country={APIData?.request[0]?.query?.split(',')[1]}
+                        city={APIData && APIData.request ? APIData.request[0]?.query?.split(',')[0] : ''}
+                        country={APIData && APIData.request ? APIData.request[0]?.query?.split(',')[1] : ''}
                         latitude={latitude}
                         longitude={longitude}
                     />
                     <Temp
                         isLoading={isLoading}
-                        celsius={APIData?.current_condition[0]?.temp_C}
-                        fahrenheit={APIData?.current_condition[0]?.temp_F}
-                        weatherStatus={APIData?.current_condition[0]?.weatherDesc[0]?.value}
+                        celsius={APIData && APIData.current_condition ? APIData.current_condition[0]?.temp_C : ''}
+                        fahrenheit={APIData && APIData.current_condition ? APIData.current_condition[0]?.temp_F : ''}
+                        weatherStatus={APIData && APIData.current_condition && APIData.current_condition[0].weatherDesc ? APIData.current_condition[0].weatherDesc?.value : ''}
                         ForC={ForC}
                         setForC={setForC}
                     />
