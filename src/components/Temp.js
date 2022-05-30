@@ -3,7 +3,7 @@ import React from 'react'
 function Temp({ isLoading, celsius, fahrenheit, weatherStatus, ForC, setForC }) {
     return (
         <>
-            <div className='temperature'>
+            { celsius && fahrenheit && weatherStatus && ForC ? <div className='temperature'>
                 <div className='temperature-container'>
                     {ForC === true ?
                         <h2>{!isLoading ? celsius : 'loading...'} C<sup>o</sup> &nbsp;</h2> :
@@ -17,7 +17,7 @@ function Temp({ isLoading, celsius, fahrenheit, weatherStatus, ForC, setForC }) 
                 >
                     {ForC === true ? 'convert from celsius to fahrenheit' : 'convert from fahrenheit to celsius'}
                 </button>
-            </div>
+            </div> : ''}
         </>
     )
 }

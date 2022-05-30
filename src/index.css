@@ -5,5 +5,10 @@
 }
 
 body {
-    background: url('../public/images/WSjKlp7.jpg') center top no-repeat;
+    background: url('../public/images/WSjKlp7.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    font-family: 'Roboto';
 }
