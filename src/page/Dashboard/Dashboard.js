@@ -9,17 +9,18 @@ import Temp from '../../components/Temp';
 import WeatherInfo from '../../components/WeatherInfo';
 import CountryForm from '../../components/CountryForm';
 import './dashboard.scss';
+import Card from '../../components/Card';
+import Model3D from '../../components/Model3D';
 
 // import { APIContext } from '../context/ContextAPI';
 // console.log(connect);
 
-function Landing () {
+function Dashboard () {
     let navigate = useNavigate();
     const { country } = useParams()
     const dispatch = useDispatch()
-    const {getData: APIData, error, isLoading} = useSelector(state => state.getDataSlice)
+    const {getData: APIData,  isLoading} = useSelector(state => state.getDataSlice)
 
-    console.log(error)
     /*states*/
     const [newCountry, setNewCountry] = useState(undefined)
     const [latitude, setLatitude] = useState(0)
@@ -40,12 +41,8 @@ function Landing () {
 
     return (
         <div className="container">
-            { APIData === undefined ?
-            <div className="button-container-error">
-                <button className='redirect-button-error' onClick={() => navigate('/')}>Go to home</button>
-            </div> :
-            (
                 <>
+                    <Model3D />
                     <CountryForm
                         handleSubmit={handleSubmit}
                         setNewCountry={setNewCountry}
@@ -61,23 +58,21 @@ function Landing () {
                         isLoading={isLoading}
                         celsius={APIData && APIData.current_condition ? APIData.current_condition[0]?.temp_C : ''}
                         fahrenheit={APIData && APIData.current_condition ? APIData.current_condition[0]?.temp_F : ''}
-                        weatherStatus={APIData && APIData.current_condition && APIData.current_condition[0].weatherDesc ? APIData.current_condition[0].weatherDesc?.value : ''}
+                        weatherStatus={APIData && APIData.current_condition && APIData.current_condition[0].weatherDesc ? APIData.current_condition[0].weatherDesc[0]?.value : ''}
                         ForC={ForC}
                         setForC={setForC}
                     />
-                    {/* {console.log(country)} */}
-                    {/* {!isLoading ?
-                        <Chart /> :
-                        'loading'
-                    } */}
                     <div className="button-container">
                         <button className="redirect-button" onClick={() => navigate('/')}>Go to home</button>
                     </div>
+                    <Card
+                        weatherData={APIData && APIData?.weather ? APIData?.weather : ''}
+                        ForC={ForC}
+                        isLoading={isLoading}
+                    />
                 </>
-            )
-            }
         </div>
     )
 }
 
-export default Landing
+export default Dashboard

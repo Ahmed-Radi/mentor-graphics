@@ -1,0 +1,35 @@
+@import './variables.scss';
+
+.container-info {
+    display: flex;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+    color: $color;
+    margin-top: 30px;
+    & > p {
+        display: grid;
+        place-items: center;
+        width: 50%;
+        font-size: 22px;
+        font-family: 'Roboto';
+    }
+}
+.error-container {
+    display: grid;
+    place-items: center;
+    .error {
+        background: rgba(255, 255, 255, 0.084);
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: #fff;
+        text-transform: capitalize;
+        margin: 50px auto;
+    }
+}
+@media (max-width: 480px) {
+    .error-container {
+        .error {
+            font-size: 16px;
+        }
+    }
+}

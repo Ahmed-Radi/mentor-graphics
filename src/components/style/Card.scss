@@ -1,0 +1,89 @@
+@import './variables.scss';
+
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    &__all-info {
+        background: rgba(255, 255, 255, 0.197);
+        padding: 10px;
+        margin: 5px;
+        width: 20%;
+        border-radius: 10px;
+        color: $color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.5s ease-in-out;
+        .card-body__info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-image {
+                width: 50%;
+                img {
+                    height: 100px;
+                    width: 100%;
+                    display: inline-block;
+                }
+            }
+            &-temp {
+                .card-info {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+        }
+        .weather-status {
+            font-size: 22px;
+            color: rgb(223, 249, 255);
+            transition: all 0.5s ease-in-out;
+        }
+        &:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: #000;
+            transition: all 0.5s ease-in-out;
+            .weather-status {
+                transition: all 0.5s ease-in-out;
+                color: #000;
+            }
+        }
+    }
+}
+@media (min-width: 100px) {
+    .card-body {
+        &__all-info {
+            width: 100% !important;
+        }
+    }
+}
+@media (min-width: 425px) and (max-width: 767.5px) {
+    .card-body {
+        &__all-info {
+            .card-body__info {
+                width: 85%;
+            }
+        }
+    }
+}
+@media (min-width: 768px) {
+    .card-body {
+        justify-content: center;
+        &__all-info {
+            width: 45% !important;
+        }
+    }
+}
+@media (min-width: 1024px) {
+    .card-body {
+        &__all-info {
+            width: 20% !important;
+        }
+    }
+}
+@media (min-width: 1250px) {
+    .card-body {
+        &__all-info {
+            width: 19% !important;
+        }
+    }
+}

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './style/WeatherInfo.scss';
 
 function WeatherInfo({ isLoading, city, country, latitude, longitude }) {
     console.log(city, country)

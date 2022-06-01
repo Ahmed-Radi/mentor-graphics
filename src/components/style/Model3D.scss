@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+.container-model {
+    width: 50%;
+    height: 50%;
+    margin: 20px auto;
+}
+@media (min-width: 0) {
+    .container-model {
+        width: 100%;
+        height: 100%;
+        margin: 10px auto;
+        canvas {
+            height: 325px!important;
+            width: 100%;
+        }
+    }
+}

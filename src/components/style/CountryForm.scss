@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+.country-form {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    color: $color;
+    overflow: hidden;
+    &__label {
+        margin: 20px 0;
+    }
+    &__input {
+        margin-bottom: 30px;
+        padding: 10px 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 100%;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__button {
+        @include button;
+    }
+}
+@media (min-width: 300px) {
+    .country-form {
+        &__button {
+            width: 100%;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .country-form {
+        &__button {
+            width: 50%!important;
+        }
+    }
+}

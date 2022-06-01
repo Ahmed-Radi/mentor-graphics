@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataReducer } from '../../Redux/Reducers/ApiReducer';
 import axios from 'axios';
-import '../components.scss';
 import Temp from '../../components/Temp';
 import WeatherInfo from '../../components/WeatherInfo';
 import CountryForm from '../../components/CountryForm';
+import Card from '../../components/Card';
+import Model3D from '../../components/Model3D';
 
 function Home() {
     const navigate = useNavigate();
@@ -47,6 +48,7 @@ function Home() {
     console.log('home', APIData)
     return (
         <div className='container'>
+            <Model3D />
             {APIData &&
                 <>
                     <CountryForm
@@ -60,13 +62,19 @@ function Home() {
                         latitude={latitude}
                         longitude={longitude}
                     />
+                    {console.log(APIData.current_condition[0] )}
                     <Temp
                         isLoading={isLoading}
                         celsius={APIData && APIData.current_condition ? APIData.current_condition[0]?.temp_C : ''}
                         fahrenheit={APIData && APIData.current_condition ? APIData.current_condition[0]?.temp_F : ''}
-                        weatherStatus={APIData && APIData.current_condition && APIData.current_condition[0].weatherDesc ? APIData.current_condition[0].weatherDesc?.value : ''}
+                        weatherStatus={APIData && APIData.current_condition && APIData.current_condition[0].weatherDesc ? APIData.current_condition[0].weatherDesc[0]?.value : ''}
                         ForC={ForC}
                         setForC={setForC}
+                    />
+                    <Card
+                        weatherData={APIData.weather}
+                        isLoading={isLoading}
+                        ForC={ForC}
                     />
                 </>
             }

@@ -1,0 +1,29 @@
+@import './variables.scss';
+
+.temperature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color;
+    &-container {
+        display: flex;
+        flex-direction: column
+    }
+    .convert-button {
+        @include button;
+    }
+}
+@media (min-width: 300px) {
+    .temperature {
+        .convert-button {
+            width: 100%;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .temperature {
+        .convert-button {
+            width: 50%!important;
+        }
+    }
+}
