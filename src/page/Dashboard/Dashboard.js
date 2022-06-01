@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import Chart from '../../components/Chart'
-// import connect from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios'
 import { getDataReducer } from '../../Redux/Reducers/ApiReducer';
 import Temp from '../../components/Temp';
 import WeatherInfo from '../../components/WeatherInfo';
@@ -11,9 +8,6 @@ import CountryForm from '../../components/CountryForm';
 import './dashboard.scss';
 import Card from '../../components/Card';
 import Model3D from '../../components/Model3D';
-
-// import { APIContext } from '../context/ContextAPI';
-// console.log(connect);
 
 function Dashboard () {
     let navigate = useNavigate();

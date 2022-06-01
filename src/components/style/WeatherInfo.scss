@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '../../shared/style/variables.scss';
 
 .container-info {
     display: flex;
@@ -30,6 +30,17 @@
     .error-container {
         .error {
             font-size: 16px;
+        }
+    }
+}
+@media (max-width: 550px) {
+    .container-info {
+        flex-direction: column;
+        align-items: center;
+        &__content {
+            margin-bottom: 10px;
+            justify-content: space-evenly;
+            width: 100%;
         }
     }
 }

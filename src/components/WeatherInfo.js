@@ -26,7 +26,7 @@ function WeatherInfo({ isLoading, city, country, latitude, longitude }) {
                         <span className="change-font">Latitude is:</span>&nbsp;
                         <p>{!isLoading ? longitude : 'loading...'}</p>
                     </> : ''}</div>
-            </div>) :
+                </div>) :
                 <div className="error-container">
                     <h2 className="error change-font">Please enter a valid country name or city name</h2>
                 </div>

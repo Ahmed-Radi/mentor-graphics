@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import '../../shared/style/variables.scss';
 
 .card-body {
     display: flex;
@@ -38,9 +38,10 @@
             }
             &-temp {
                 flex: 1;
+                // width: 40%;
                 .card-info {
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: space-between;
                     margin-bottom: 5px;
                     &__text {margin: 0;}
                     // flex-direction: column;
@@ -67,30 +68,39 @@
     .card-body {
         &__all-info {
             width: 100% !important;
+            .card-body__info {
+                &-temp {
+                    flex: 0.8;
+                }
+            }
         }
     }
 }
 @media (min-width: 425px) and (max-width: 767.5px) {
-    .card-body {
-        &__all-info {
-            .card-body__info {
-                width: 85%;
-            }
+    .card-body__all-info {
+        .card-body__info {
+            width: 85%;
         }
     }
 }
 @media (min-width: 768px) {
     .card-body {
-        justify-content: space-between;
+        justify-content: center;
         &__all-info {
-            width: 45% !important;
+            width: 48% !important;
         }
     }
 }
 @media (min-width: 1024px) {
     .card-body {
+        justify-content: center;
         &__all-info {
-            width: 20% !important;
+            width: 24% !important;
+            .card-body__info {
+                &-temp {
+                    flex: 1;
+                }
+            }
         }
     }
 }
