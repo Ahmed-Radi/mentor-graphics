@@ -37,8 +37,6 @@ function Dashboard () {
         if (newCountry) navigate(`/${newCountry}`)
     }
 
-    console.log('27',APIData?.data?.error)
-
     return (
         <div className="container">
                 <>

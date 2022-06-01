@@ -6,12 +6,12 @@
     text-transform: capitalize;
     color: $color;
     margin-top: 30px;
-    & > p {
-        display: grid;
-        place-items: center;
+    &__content {
+        display: flex;
+        justify-content: center;
         width: 50%;
         font-size: 22px;
-        font-family: 'Roboto';
+        > p {margin: 0;}
     }
 }
 .error-container {

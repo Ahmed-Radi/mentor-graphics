@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,500;1,400&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -5,10 +6,21 @@
 }
 
 body {
-    background: url('../public/images/WSjKlp7.jpg');
+    background: url('../public/images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
     font-family: 'Roboto';
+    image-rendering: pixelated;
 }
+
+.change-font {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+/*Scroll bar*/
+::-webkit-scrollbar {width: 15px;}
+::-webkit-scrollbar-track {border-radius: 10px;}
+::-webkit-scrollbar-thumb {background: #00d0ff88;border-radius: 10px;}
+::-webkit-scrollbar-thumb:hover {background: #00d0ff77;}

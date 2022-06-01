@@ -5,13 +5,6 @@
     .redirect-button {
         @include button;
     }
-    &-error {
-        .redirect-button-error {
-            @include button($bg: red);
-            display: inline-block;
-            margin: auto;
-        }
-    }
 }
 @media (min-width: 300px) {
     .button-container {
