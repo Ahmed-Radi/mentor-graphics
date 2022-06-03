@@ -8,6 +8,7 @@ import CountryForm from '../../components/CountryForm';
 import './dashboard.scss';
 import Card from '../../components/Card';
 import Model3D from '../../components/Model3D';
+import BarChart from '../../components/D3Chart';
 
 function Dashboard () {
     let navigate = useNavigate();
@@ -15,12 +16,10 @@ function Dashboard () {
     const dispatch = useDispatch()
     const {getData: APIData,  isLoading} = useSelector(state => state.getDataSlice)
 
-    /*states*/
     const [newCountry, setNewCountry] = useState(undefined)
-    const [latitude, setLatitude] = useState(0)
-    const [longitude, setLongitude] = useState(0)
+    const [latitude] = useState(0)
+    const [longitude] = useState(0)
     const [ForC, setForC] = useState(true)
-    /**/
 
     useEffect(() => {
         dispatch(getDataReducer({country}))
@@ -62,6 +61,7 @@ function Dashboard () {
                         ForC={ForC}
                         isLoading={isLoading}
                     />
+                    {!APIData.error && <BarChart data={APIData &&  APIData?.ClimateAverages ? APIData?.ClimateAverages[0]?.month : ''} />}
                 </>
         </div>
     )
