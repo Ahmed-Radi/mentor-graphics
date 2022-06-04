@@ -4,15 +4,15 @@ import './style/ResponsiveBar.scss'
 
 const BarChart = ({ data }) => {
 
-    const fakeData = data && data?.map(d=> [{index: +d.index, temp: +d.avgMinTemp}][0])
-    const [characterData, setChartData] = React.useState(fakeData)
+    const apiData = data && data?.map(d=> [{index: +d.index, temp: +d.avgMinTemp}][0])
+    // const [characterData, setChartData] = React.useState(apiData)
 
 	const d3Chart = useRef()
 
 	const margin = {top: 50, right:30, bottom: 30, left:60}
 
 	useEffect(()=>{
-        setChartData(fakeData)
+        // setChartData(apiData)
 		const chartWidth = parseInt(d3.select('#d3container').style('width')) - margin.left - margin.right
 		const chartHeight = parseInt(d3.select('#d3container').style('height')) - margin.top - margin.bottom
 
@@ -28,15 +28,15 @@ const BarChart = ({ data }) => {
 
 		// x scale
 		const x = d3.scaleBand()
-					.domain(d3.range(characterData.length))
+					.domain(d3.range(apiData.length))
 					.range([margin.left, chartWidth - margin.right])
 					.padding(0.1)
 
 		svg.append('g')
 			.attr('transform', 'translate(0,'+ chartHeight + ')')
-			.call(d3.axisBottom(x).tickFormat(i=>characterData[i].index).tickSizeOuter(0))
+			.call(d3.axisBottom(x).tickFormat(i=>apiData[i].index).tickSizeOuter(0))
 
-		const max = d3.max(characterData, function(d){return d.temp})
+		const max = d3.max(apiData, function(d){return d.temp})
 
 		// y scale
 		const y = d3.scaleLinear()
@@ -51,14 +51,14 @@ const BarChart = ({ data }) => {
 		svg.append('g')
 			.attr('fill','#65f0eb')
 			.selectAll('rect')
-			.data(characterData)
+			.data(apiData)
 			.join('rect')
 				.attr('x', (d,i) => x(i))
 				.attr('y', d => y(d.temp))
 				.attr('height', d=>y(0)-y(d.temp))
 				.attr('width', x.bandwidth())
 
-	},[characterData, margin.bottom, margin.left, margin.right, margin.top])
+	},[apiData, margin.bottom, margin.left, margin.right, margin.top])
 
 	return (
 		<div id='d3container'>
