@@ -52,6 +52,10 @@
             font-size: 22px;
             color: rgb(223, 249, 255);
             transition: all 0.5s ease-in-out;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            text-align: center;
+            margin-bottom: 0;
         }
         &:hover {
             background: rgba(255, 255, 255, 0.8);

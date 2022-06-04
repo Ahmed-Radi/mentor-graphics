@@ -1,4 +1,5 @@
 @import '../../shared/style/variables.scss';
+@import '../../shared/style/mixin';
 
 .container-info {
     display: flex;
@@ -18,12 +19,24 @@
     display: grid;
     place-items: center;
     .error {
-        background: rgba(255, 255, 255, 0.084);
-        padding: 15px 30px;
-        border-radius: 10px;
-        color: #fff;
-        text-transform: capitalize;
+        @include error;
         margin: 50px auto;
+    }
+}
+.error-form-container {
+    display: grid;
+    place-items: center;
+    .error {
+        @include error;
+        margin-top: -16px;
+    }
+}
+@media (min-width: 320px) {
+    .error-container,
+    .error-form-container {
+        .error {
+            text-align: center;
+        }
     }
 }
 @media (max-width: 480px) {

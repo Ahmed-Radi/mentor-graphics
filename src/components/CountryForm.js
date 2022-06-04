@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import  './style/CountryForm.scss';
 
-function CountryForm({ handleSubmit, setNewCountry }) {
+function CountryForm({ handleSubmit, setNewCountry, formError }) {
     const [initialPos,   setInitialPos] = useState(null);
     const [initialSize, setInitialSize] = useState(null);
     const initial = (e) => {
@@ -28,6 +28,11 @@ function CountryForm({ handleSubmit, setNewCountry }) {
                             onDragStart = {initial}
                             onDrag      = {resize}
                         />
+                        {formError && <>
+                            <div className="error-form-container">
+                                <p className="error change-font">Please enter country or city name</p>
+                            </div>
+                        </>}
                     </div>
                 <button className="country-form__button">Choose another country</button>
             </form>

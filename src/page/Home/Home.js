@@ -25,6 +25,7 @@ function Home() {
         city: "",
         timezone: ""
     });
+    const [formError, setFormError] = useState(false)
 
     const getGeoInfo = () => {
         axios
@@ -57,7 +58,12 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (newCountry) navigate(`/${newCountry}`)
+        if (newCountry) {
+            navigate(`/${newCountry}`)
+            setFormError(false)
+        } else {
+            setFormError(true)
+        }
     }
 
     return (
@@ -68,6 +74,7 @@ function Home() {
                     <CountryForm
                         handleSubmit={handleSubmit}
                         setNewCountry={setNewCountry}
+                        formError={formError}
                     />
                     <WeatherInfo
                         isLoading={isLoading}

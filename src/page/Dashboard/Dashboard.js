@@ -20,6 +20,7 @@ function Dashboard () {
     const [latitude] = useState(0)
     const [longitude] = useState(0)
     const [ForC, setForC] = useState(true)
+    const [formError, setFormError] = useState(false)
 
     useEffect(() => {
         dispatch(getDataReducer({country}))
@@ -27,7 +28,13 @@ function Dashboard () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (newCountry) navigate(`/${newCountry}`)
+        console.log(newCountry)
+        if (newCountry) {
+            navigate(`/${newCountry}`)
+            setFormError(false)
+        } else {
+            setFormError(true)
+        }
     }
 
     return (
@@ -37,6 +44,8 @@ function Dashboard () {
                     <CountryForm
                         handleSubmit={handleSubmit}
                         setNewCountry={setNewCountry}
+                        newCountry={newCountry}
+                        formError={formError}
                     />
                     <WeatherInfo
                         isLoading={isLoading}
