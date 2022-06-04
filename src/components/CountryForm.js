@@ -17,7 +17,7 @@ function CountryForm({ handleSubmit, setNewCountry }) {
     return (
         <>
             <form onSubmit={e => handleSubmit(e)} className="country-form">
-                    <label htmlFor="Draggable" className='h2 change-font country-form__label'>Enter country:</label>
+                    <label htmlFor="Draggable" className='h2 change-font country-form__label'>Enter country or city:</label>
                     <div id="Resizable">
                         <input
                             className='country-form__input'

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import './ResponsiveBar.css';
+import './style/ResponsiveBar.scss'
 
 const BarChart = ({ data }) => {
 
@@ -12,13 +12,19 @@ const BarChart = ({ data }) => {
 	const margin = {top: 50, right:30, bottom: 30, left:60}
 
 	useEffect(()=>{
-        setChartData(characterData)
-		const chartWidth = parseInt(d3.select('#d3demo').style('width')) - margin.left - margin.right
-		const chartHeight = parseInt(d3.select('#d3demo').style('height')) - margin.top - margin.bottom
+        setChartData(fakeData)
+		const chartWidth = parseInt(d3.select('#d3container').style('width')) - margin.left - margin.right
+		const chartHeight = parseInt(d3.select('#d3container').style('height')) - margin.top - margin.bottom
 
 		const svg = d3.select(d3Chart.current).style('background', '#d3d3d3')
 						.attr('width', chartWidth + margin.left + margin.right)
 						.attr('height', chartHeight + margin.top + margin.bottom)
+                        .attr('preserveAspectRatio', 'xMinYMin meet')
+                        .attr(
+                            'viewBox',
+                            `0 0 ${(chartWidth + margin.left + margin.right)}
+                            ${(chartHeight + margin.top + margin.bottom)}`
+                        )
 
 		// x scale
 		const x = d3.scaleBand()
@@ -55,7 +61,7 @@ const BarChart = ({ data }) => {
 	},[characterData, margin.bottom, margin.left, margin.right, margin.top])
 
 	return (
-		<div id='d3demo'>
+		<div id='d3container'>
             <svg className='svg' ref={d3Chart}></svg>
 		</div>
 	)
