@@ -18,7 +18,7 @@ function Card({ weatherData, ForC, isLoading }) {
                                         data?.hourly[index]?.weatherDesc[0].value === 'Mist' ? <img src={'/images/weather/mist.png'} width="40px" height="40px" alt="Mist" /> :
                                         data?.hourly[index]?.weatherDesc[0].value === 'Light rain shower' || data?.hourly[index]?.weatherDesc[0].value === 'Overcast' ? <img src={'/images/weather/cloud-sun.png'} width="40px" height="40px" alt="Light rain shower" /> :
                                         data?.hourly[index]?.weatherDesc[0].value === 'Partly cloudy' ? <img src={'/images/weather/Partly-cloudy.png'} width="40px" height="40px" alt="Partly cloudy" /> :
-                                        data?.hourly[index]?.weatherDesc[0].value === 'Moderate or heavy rain with thunder' ? <img src={'/images/weather/Moderate-or-heavy-rain-with-thunder.png'} width="40px" height="40px" alt="Moderate or heavy rain with thunder" /> :
+                                        data?.hourly[index]?.weatherDesc[0].value === 'Moderate or heavy rain with thunder' || data?.hourly[index]?.weatherDesc[0].value === 'Thundery outbreaks possible' || data?.hourly[index]?.weatherDesc[0].value === 'Moderate or heavy rain shower' ? <img src={'/images/weather/Moderate-or-heavy-rain-with-thunder.png'} width="40px" height="40px" alt="Moderate or heavy rain with thunder" /> :
                                         data?.hourly[index]?.weatherDesc[0].value === 'Patchy rain possible' || data?.hourly[index]?.weatherDesc[0].value === 'Heavy rain' ? <img src={'/images/weather/patchy-rain-possible.png'} width="40px" height="40px" alt="Patchy rain possible" /> : ""
                                     }
                                 </div>

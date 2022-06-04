@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import  './style/CountryForm.scss';
 
-function CountryForm({ handleSubmit, setNewCountry }) {
+function CountryForm({ handleSubmit, setNewCountry, formError }) {
     const [initialPos,   setInitialPos] = useState(null);
     const [initialSize, setInitialSize] = useState(null);
     const initial = (e) => {
@@ -17,7 +17,7 @@ function CountryForm({ handleSubmit, setNewCountry }) {
     return (
         <>
             <form onSubmit={e => handleSubmit(e)} className="country-form">
-                    <label htmlFor="Draggable" className='h2 change-font country-form__label'>Enter country:</label>
+                    <label htmlFor="Draggable" className='h2 change-font country-form__label'>Enter country or city:</label>
                     <div id="Resizable">
                         <input
                             className='country-form__input'
@@ -28,6 +28,11 @@ function CountryForm({ handleSubmit, setNewCountry }) {
                             onDragStart = {initial}
                             onDrag      = {resize}
                         />
+                        {formError && <>
+                            <div className="error-form-container">
+                                <p className="error change-font">Please enter country or city name</p>
+                            </div>
+                        </>}
                     </div>
                 <button className="country-form__button">Choose another country</button>
             </form>

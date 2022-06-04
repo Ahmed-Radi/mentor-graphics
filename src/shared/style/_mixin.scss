@@ -14,3 +14,11 @@
         transition: all 0.5s ease-in;
     }
 }
+
+@mixin error {
+    background: rgba(255, 255, 255, 0.084);
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: #fff;
+    text-transform: capitalize;
+}
